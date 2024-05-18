@@ -217,7 +217,7 @@ def exportar_para_json(inst_SQL):
 def conecta_BD():
     try:
         dnStr = oracledb.makedsn("oracle.fiap.com.br", "1521", "ORCL")
-        conn = oracledb.connect(user="PF1633", password="fiap23", dsn=dnStr)
+        conn = oracledb.connect(user="RM552671", password="051204", dsn=dnStr)
         inst_SQL = conn.cursor()
     except Exception as e:
         print("Erro ao conectar ao banco de dados:", e)
