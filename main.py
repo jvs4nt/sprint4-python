@@ -3,6 +3,27 @@ import oracledb
 import pandas as pd
 import json
 
+def conecta_BD():
+    try:
+        dnStr = oracledb.makedsn("oracle.fiap.com.br", "1521", "ORCL")
+        conn = oracledb.connect(user="rm554328", password="fiap24", dsn=dnStr)
+        inst_SQL = conn.cursor()
+    except Exception as e:
+        print("Erro ao conectar ao banco de dados:", e)
+        inst_SQL = None
+        conn = None
+    else:
+        print("Conexão bem-sucedida ao banco de dados.")
+    return conn is not None, inst_SQL, conn
+
+def executar_query(inst_SQL, conn, query):
+    try:
+        inst_SQL.execute(query)
+        conn.commit()
+        print("Operação realizada com sucesso.")
+    except Exception as e:
+        print("Erro ao executar a query:", e)
+
 def main():
     conexao, inst_SQL, conn = conecta_BD()
     opc = 0
@@ -214,27 +235,6 @@ def exportar_para_json(inst_SQL):
         print("Dados exportados para 'dados.json' com sucesso!")
     except Exception as e:
         print("Erro: ", e)
-
-def conecta_BD():
-    try:
-        dnStr = oracledb.makedsn("oracle.fiap.com.br", "1521", "ORCL")
-        conn = oracledb.connect(user="rm554328", password="fiap24", dsn=dnStr)
-        inst_SQL = conn.cursor()
-    except Exception as e:
-        print("Erro ao conectar ao banco de dados:", e)
-        inst_SQL = None
-        conn = None
-    else:
-        print("Conexão bem-sucedida ao banco de dados.")
-    return conn is not None, inst_SQL, conn
-
-def executar_query(inst_SQL, conn, query):
-    try:
-        inst_SQL.execute(query)
-        conn.commit()
-        print("Operação realizada com sucesso.")
-    except Exception as e:
-        print("Erro ao executar a query:", e)
 
 if __name__ == "__main__":
     main()
