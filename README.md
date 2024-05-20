@@ -85,29 +85,29 @@ Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que int
 3. No arquivo api.py, visualize o retorno da api utilizando o endpoint "/clientes". Sinta-se à vontade para consumir a API para testes.
 
 Exemplo do retorno:
-{
+- {
    "CPF_CNPJ":"0192019201",
    "EMAIL_CLIE":"willian@willian",
    "ID_CLIE":26,"NOME_CLIE":"willian"
-},
-{
+- },
+- {
       "CPF_CNPJ":"12801822342",
       "EMAIL_CLIE":"ryan@teste",
       "ID_CLIE":30,
       "NOME_CLIE":"ryan"
-},
-{
+- },
+- {
    "CPF_CNPJ":"001",
    "EMAIL_CLIE":
    "joao@teste",
    "ID_CLIE":10,
    "NOME_CLIE":"joao edit teste"
-}
+- }
 
 ## Testes disponíveis:
 
-API (Replit): https://replit.com/@joaovit342/APISPRINT4PYTHON#main.py
-Website (API foi utilizada para gerar a tabela na aba "Clientes"): https://salesforce-sprint4.vercel.app/ 
+- API (Replit): https://replit.com/@joaovit342/APISPRINT4PYTHON#main.py
+- Website (API foi utilizada para gerar a tabela na aba "Clientes"): https://salesforce-sprint4.vercel.app/ 
 
 ## Contribuição
 
