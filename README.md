@@ -1,12 +1,14 @@
 # Sistema de Gerenciamento de Cadastros
 
-Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que interage com um banco de dados Oracle. O sistema permite o cadastro, alteração, exclusão e consulta de clientes, funcionários e chatbots.
+Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que interage com um banco de dados Oracle. O sistema permite o cadastro, alteração, exclusão e consulta de clientes, funcionários e chatbots. O sistema conta com dois arquivos, um para realizar operações no banco de dados, e uma API para ser consumida em um projeto React disponibilizado no final da documentação.
 
 ## Pré-requisitos
 
 - Python 3.x
 - Oracle SQL Developer
-- Módulo `oracledb` para Python
+- Módulo `oracledb` para Python (MAIN)
+- Módulo `flask` para Python (API)
+- Módulo `flask-cors` para Python (API)
 - Pandas
 - JSON
 
@@ -22,6 +24,8 @@ Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que int
 
    ```bash
    pip install pandas oracledb
+   pip install flask
+   pip install flask-cors
    ```
 
 ## Configuração do Banco de Dados
@@ -35,8 +39,12 @@ Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que int
    ```bash
    python main.py
    ```
+   --
+   ```bash
+   python api.py
+   ```
 
-2. Selecione uma das opções do menu para realizar operações de cadastro, alteração, exclusão ou consulta.
+2. No arquivo main.py, selecione uma das opções do menu para realizar operações de cadastro, alteração, exclusão ou consulta.
 
 ## Funcionalidades
 
@@ -73,6 +81,33 @@ Este é um sistema de gerenciamento de cadastros desenvolvido em Python, que int
 | id_chatbot      | NUMBER    | Identificador (PK)              |
 | data_inicio_cb  | DATE      | Data de início do chatbot       |
 | api_token       | VARCHAR2  | Token de API do chatbot         |
+
+3. No arquivo api.py, visualize o retorno da api utilizando o endpoint "/clientes". Sinta-se à vontade para consumir a API para testes.
+
+Exemplo do retorno:
+{
+   "CPF_CNPJ":"0192019201",
+   "EMAIL_CLIE":"willian@willian",
+   "ID_CLIE":26,"NOME_CLIE":"willian"
+},
+{
+      "CPF_CNPJ":"12801822342",
+      "EMAIL_CLIE":"ryan@teste",
+      "ID_CLIE":30,
+      "NOME_CLIE":"ryan"
+},
+{
+   "CPF_CNPJ":"001",
+   "EMAIL_CLIE":
+   "joao@teste",
+   "ID_CLIE":10,
+   "NOME_CLIE":"joao edit teste"
+}
+
+## Testes disponíveis:
+
+API (Replit): https://replit.com/@joaovit342/APISPRINT4PYTHON#main.py
+Website (API foi utilizada para gerar a tabela na aba "Clientes"): https://salesforce-sprint4.vercel.app/ 
 
 ## Contribuição
 
