@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
 import oracledb
 import pandas as pd
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para todas as rotas
 
 def conecta_BD():
     try:
